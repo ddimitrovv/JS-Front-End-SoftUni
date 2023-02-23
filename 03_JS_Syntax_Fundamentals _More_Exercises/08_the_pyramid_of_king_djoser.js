@@ -20,7 +20,7 @@ function pyramidOfDjoser (base, increment) {
     }
 
     step++;
-    goldNeeded += base ** 2;
+    goldNeeded += (base ** 2) * increment;
     
     console.log(`Stone required: ${Math.ceil(stoneNeeded)}`);
     console.log(`Marble required: ${Math.ceil(marbleNeeded)}`);
