@@ -10,9 +10,6 @@ function findSubstring(word, sentence) {
             condition = true;
             break;
         }
-        if (condition) {
-            break;
-        }
     }
     if (condition === false) {
         console.log(`${word} not found!`)
