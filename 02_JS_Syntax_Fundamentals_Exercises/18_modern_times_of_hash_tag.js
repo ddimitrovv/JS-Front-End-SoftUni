@@ -1,12 +1,14 @@
 function hashTag(sentence) {
+    
     sentence = sentence.split(' ');
     let desiredWords = [];
+    let letters = /^[A-Za-z]+$/;
 
-    for (i = 0; i < sentence.length; i++) {
-        let current = sentence[i];
+    for (const word of sentence) {
+        let current = word;
         if (current.startsWith('#') && current.length > 1){
             current = current.slice(1, current.length)
-            let letters = /^[A-Za-z]+$/;
+            
             if(current.match(letters)) {
                 desiredWords.push(current.replace(',', ''));
             }
