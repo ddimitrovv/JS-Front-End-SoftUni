@@ -27,5 +27,3 @@ function printDna(input) {
         counter++;
     }
 }
-
-printDna(10)
