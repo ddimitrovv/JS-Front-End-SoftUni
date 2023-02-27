@@ -1,6 +1,6 @@
 function printDna(input) {
 
-    let symbols = 'ATCGTTAGGG'.split('')
+    const symbols = 'ATCGTTAGGG'.split('')
     let counter = 1
 
     for (let i = 0; i < input; i++) {
