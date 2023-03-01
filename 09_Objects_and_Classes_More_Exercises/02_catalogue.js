@@ -14,7 +14,7 @@ function catalogue(inputArray) {
 
     for (const key of Object.keys(output).sort()) {
         console.log(key)
-        for (let product of output[key].sort((a, b) => a.productName.localeCompare(b.productName)))  {
+        for (const product of output[key].sort((a, b) => a.productName.localeCompare(b.productName)))  {
             console.log(`  ${product.productName}: ${product.productPrice}`)
         }
     }  
