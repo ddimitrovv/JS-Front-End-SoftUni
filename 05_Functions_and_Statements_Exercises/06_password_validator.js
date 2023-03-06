@@ -1,8 +1,8 @@
 function passwordValidator(password) {
 
     let condition = true;
-    let letterNumber = /^[0-9a-zA-Z]+$/;
-    let count = (password.match(/\d/g) || []).length;
+    let letterNumber = /^\w+$/;
+    let count = (password.match(/\d/g) || []).length >= 2;
     
     if (password.length < 6 || 10 < password.length) {
         condition = false;
@@ -12,7 +12,7 @@ function passwordValidator(password) {
         condition = false;
         console.log('Password must consist only of letters and digits');
     }
-    if (count < 2) {
+    if (count) {
         condition = false;
         console.log('Password must have at least 2 digits');
     }
