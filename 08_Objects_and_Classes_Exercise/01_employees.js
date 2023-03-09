@@ -18,3 +18,17 @@ function employees(namesArray) {
         console.log(`Name: ${employee.name} -- Personal Number: ${employee.personalNumber}`);
     }
 }
+
+// ---------- Solution 2 ----------
+
+function employees(namesArray) {
+
+    let employeesData = namesArray.reduce((data, employee) => {
+        data[employee] = employee.length;
+        return data;
+    }, {});
+
+    for (const employee in employeesData) {
+        console.log(`Name: ${employee} -- Personal Number: ${employeesData[employee]}`);
+    }
+}

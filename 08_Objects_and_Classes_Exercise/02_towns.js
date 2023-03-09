@@ -24,3 +24,13 @@ function townsInfo(cities) {
         console.log(town)
     }
 }
+
+// ---------- Solution 2 ----------
+
+function townsInfo(cities) {
+
+    for (const currentCity of cities) {
+        let [town, latitude, longitude] = currentCity.split(' | ');
+        console.log({town, latitude: Number(latitude).toFixed(2), longitude: Number(longitude).toFixed(2)});
+    }
+}

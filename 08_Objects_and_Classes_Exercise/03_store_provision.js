@@ -17,3 +17,21 @@ function store(stock, ordered) {
         console.log(`${product} -> ${quantity}`)
     }
 }
+
+// ---------- Solution 2 ----------
+
+function store(stock, ordered) {
+
+    let products = [...stock, ...ordered]
+    let storeProducts = {};
+    for (let i = 0; i < products.length; i += 2) {
+        if (!(products[i] in storeProducts)) {
+            storeProducts[products[i]] = 0
+        }
+        storeProducts[products[i]] += Number(products[i + 1]);
+    }
+
+    for (const key in storeProducts) {
+        console.log(`${key} -> ${storeProducts[key]}`)
+    }
+}
