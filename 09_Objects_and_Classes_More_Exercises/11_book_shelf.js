@@ -30,10 +30,8 @@ function bookShelf(inputArray) {
         for (const [genre, books] of entries) {
             console.log(`${key} ${genre}: ${books.length}`);
             let booksList = Object.values(books);
-            booksList = booksList.sort((a, b) => {
-                return a.bookTitle.localeCompare(b.bookTitle);
-            })
-            for (bookInfo of booksList) {
+            let sortedBooksList = booksList.sort((a, b) => a.bookTitle.localeCompare(b.bookTitle))
+            for (bookInfo of sortedBooksList) {
                 console.log(`--> ${bookInfo.bookTitle}: ${bookInfo.bookAuthor}`);
             }
         }
