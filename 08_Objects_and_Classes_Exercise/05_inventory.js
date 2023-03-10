@@ -30,3 +30,24 @@ function inventory(input) {
         }
     
 }
+
+// ---------- Solution 2 ----------
+
+function inventory(input) {
+    let heroes = [];
+
+    for (const heroInfo of input) {
+        let [hero, level, items] = heroInfo.split(' / ');
+        heroes.push({hero, level, items});
+    }
+
+    sortedHeroes = [...heroes].sort((a, b) => {
+         return a.level - b.level
+    })
+
+    for (const {hero, level, items} of sortedHeroes) {
+            console.log(`Hero: ${hero}`)
+            console.log(`level => ${level}`)
+            console.log(`items => ${items}`)
+        }
+}
