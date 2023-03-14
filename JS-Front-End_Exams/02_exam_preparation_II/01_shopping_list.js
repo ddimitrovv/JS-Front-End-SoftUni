@@ -54,7 +54,6 @@ shoppingList(
     ["Tomatoes!Potatoes!Bread",
     "Unnecessary Milk",
     "Urgent Tomatoes",
-    "Rearrange Potatoes",
     "Go Shopping!"]
 );
 
