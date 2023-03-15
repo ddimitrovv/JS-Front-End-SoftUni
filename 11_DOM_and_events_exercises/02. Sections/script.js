@@ -6,7 +6,7 @@ function create(words) {
       p.textContent = word;
       p.style.display ='none';
       div.appendChild(p);
-      div.addEventListener('click', (e) => {e.target.children[0].style.display = 'inline';});
+      div.addEventListener('click', (e) => {e.target.children[0].style.display = 'inline-block';});
       target.appendChild(div)
    }
 }
