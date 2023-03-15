@@ -2,7 +2,7 @@ function shoppingList(inputArray) {
 
     function urgent(item) {
         if (!(shoppingList.includes(item))) {
-            shoppingList.splice(0, 0, item)
+            shoppingList.unshift(item);
         }
     }
 
