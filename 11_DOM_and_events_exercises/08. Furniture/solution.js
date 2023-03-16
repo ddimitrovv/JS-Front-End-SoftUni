@@ -59,6 +59,9 @@ function solve() {
             });
         });
         let textArea = document.querySelector('#exercise > textarea:nth-child(5)');
-        textArea.textContent = `Bought furniture: ${shoppingList['Bought furniture'].join(', ')}`+'\n'+`Total price: ${shoppingList['Total price'].toFixed(2)}`+'\n'+`Average decoration factor: ${shoppingList['Average decoration factor'].reduce((partialSum, a) => partialSum + a, 0) / shoppingList['Average decoration factor'].length}`       
-    })
+        let totalPrice = shoppingList['Total price'].toFixed(2);
+        let avDecFactor = (isNaN(shoppingList['Average decoration factor'].reduce((partialSum, a) => partialSum + a, 0) / shoppingList['Average decoration factor'].length)) ? 0 :avDecFactor;
+
+        textArea.textContent = `Bought furniture: ${shoppingList['Bought furniture'].join(', ')}`+'\n'+`Total price: ${totalPrice}`+'\n'+`Average decoration factor: ${avDecFactor}`       
+    });
 }
