@@ -5,6 +5,9 @@ function solve() {
       const searched = document.querySelector('#searchField');
       const tableRowsInfo = Array.from(document.querySelectorAll('tbody > tr > td'))
       tableRowsInfo.forEach(element => {
+         element.parentElement.className = ''
+      });
+      tableRowsInfo.forEach(element => {
          if (element.textContent.includes(searched.value)) {
             element.parentElement.className = 'select';
          }
