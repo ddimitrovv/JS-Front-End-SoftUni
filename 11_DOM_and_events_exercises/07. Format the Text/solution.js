@@ -3,16 +3,10 @@ function solve() {
   const target = document.getElementById('output')
 
   let sentences = text.value.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-  let paragraphs = Math.ceil(sentences.length / 3);
 
-  for (let i = 0; i < paragraphs; i++) {
-    let p = document.createElement('p');
-    for (let i = 0; i < 3; i++) {
-      p.textContent += sentences.shift();
-      if (sentences.length === 0) {
-        break;
-      }
-    }
+  while (sentences.length > 0) {
+    p = document.createElement('p');
+    p.textContent = sentences.splice(0, 3);
     target.appendChild(p);
   }
 }
