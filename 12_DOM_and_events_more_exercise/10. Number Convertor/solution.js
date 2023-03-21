@@ -10,7 +10,7 @@ function solve() {
     dropDown.appendChild(hex);
 
     const button = document.getElementsByTagName('button')[0];
-    button.addEventListener('click', (event) => {
+    button.addEventListener('click', () => {
         const number = Number(document.getElementById('input').value);
         const convertTo = document.getElementById('selectMenuTo').value;
         const outputTarget = document.getElementById('result');
