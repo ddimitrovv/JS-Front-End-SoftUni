@@ -17,11 +17,11 @@ function solve() {
         })
 
         if (checkMatrix(matrix)) {
-            table.style.border = '1px solid green';
+            table.style.border = '2px solid green';
             outputParagraph.textContent = 'You solve it! Congratulations!';
             outputParagraph.style.color = 'green';
         } else {
-            table.style.border = '1px solid red';
+            table.style.border = '2px solid red';
             outputParagraph.textContent = 'NOP! You are not done yet...';
             outputParagraph.style.color = 'red';
         }
