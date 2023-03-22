@@ -7,7 +7,7 @@ function encodeAndDecodeMessages() {
                 const text = inputText.value;
                 let encodedText = '';
                 for (let i = 0; i < text.length; i++) {
-                    current = Number(text.charCodeAt(i));
+                    current = text.charCodeAt(i);
                     encodedText += String.fromCharCode(current + 1)
                 }
                 document.querySelector('#main > div:nth-child(2) > textarea').value = encodedText;
@@ -17,7 +17,7 @@ function encodeAndDecodeMessages() {
                 const text = inputText.value;
                 let encodedText = '';
                 for (let i = 0; i < text.length; i++) {
-                    current = Number(text.charCodeAt(i));
+                    current = text.charCodeAt(i);
                     encodedText += String.fromCharCode(current - 1)
                 }
                 document.querySelector('#main > div:nth-child(2) > textarea').value = encodedText;
