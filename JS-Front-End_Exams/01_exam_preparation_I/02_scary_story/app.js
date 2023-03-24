@@ -18,7 +18,8 @@ function solve() {
     publishButton.addEventListener('click', publish);
 
     function publish() {
-        if (firstName && lastName && age.value && storyTitle && story.value) {
+
+        if (firstName.value && lastName.value && age.value && storyTitle.value && story.value) {
             const ul = document.getElementById('preview-list')
             let li = document.createElement('li');
             li.className = 'story-info';
@@ -48,41 +49,46 @@ function solve() {
             let saveButton = document.createElement('button');
             saveButton.textContent = 'Save Story';
             saveButton.className = 'save-btn';
-            saveButton.addEventListener('click', () => {
-                const divMain = document.getElementById('main');
-                divMain.textContent = '';
-                let heading = document.createElement('h1');
-                heading.textContent = 'Your scary story is saved!';
-                divMain.appendChild(heading);
-            });
+            saveButton.addEventListener('click', saveStory);
             let editButton = document.createElement('button');
             editButton.textContent = 'Edit Story';
             editButton.className = 'edit-btn';
-            editButton.addEventListener('click', () => {
-                firstName.value = currentFirstName;
-                lastName.value = currentLastName;
-                age.value = currentAge;
-                storyTitle.value = currentStoryTitle;
-                genre.value = currentGenre;
-                story.value = currentStory;
-                editInfo = Array.from(document.getElementsByClassName('story-info'))[0];
-                editInfo.remove();
-                publishButton.disabled = false;
-                
-            });
+            editButton.addEventListener('click', editStory);
+
             let deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete Story';
             deleteButton.className = 'delete-btn';
-            deleteButton.addEventListener('click', () => {
-                let target = document.querySelector('#preview-list li');
-                target.remove();
-                publishButton.disabled = '';
-            });
+            deleteButton.addEventListener('click', deleteStory);
 
             article.append(heading, firstP, secondP, thirdP, fourthP);
             li.append(article, saveButton, editButton, deleteButton);
             ul.append(li);
             publishButton.disabled = 'disabled';
         }
+    }
+
+    function deleteStory() {
+        const target = document.querySelector('#preview-list li');
+        target.remove()
+    }
+
+    function editStory() {
+        firstName.value = currentFirstName;
+        lastName.value = currentLastName;
+        age.value = currentAge;
+        storyTitle.value = currentStoryTitle;
+        genre.value = currentGenre;
+        story.value = currentStory;
+        editInfo = document.querySelector('.story-info');
+        editInfo.remove();
+        publishButton.disabled = false;
+    }
+
+    function saveStory() {
+        const divMain = document.getElementById('main');
+        divMain.textContent = '';
+        let heading = document.createElement('h1');
+        heading.textContent = 'Your scary story is saved!';
+        divMain.appendChild(heading);
     }
 }
