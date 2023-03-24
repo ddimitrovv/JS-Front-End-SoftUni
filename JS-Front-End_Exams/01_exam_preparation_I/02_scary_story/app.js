@@ -60,9 +60,18 @@ function solve() {
             deleteButton.className = 'delete-btn';
             deleteButton.addEventListener('click', deleteStory);
 
-            article.append(heading, firstP, secondP, thirdP, fourthP);
-            li.append(article, saveButton, editButton, deleteButton);
-            ul.append(li);
+            // article.append(heading, firstP, secondP, thirdP, fourthP);
+            // li.append(article, saveButton, editButton, deleteButton);
+            article.appendChild(heading);
+            article.appendChild(firstP);
+            article.appendChild(secondP);
+            article.appendChild(thirdP);
+            article.appendChild(fourthP);
+            li.appendChild(article);
+            li.appendChild(saveButton);
+            li.appendChild(editButton);
+            li.appendChild(deleteButton);
+            ul.appendChild(li);
             publishButton.disabled = 'disabled';
         }
     }
