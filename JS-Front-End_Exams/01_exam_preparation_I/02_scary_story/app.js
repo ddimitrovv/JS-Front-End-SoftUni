@@ -19,7 +19,7 @@ function solve() {
 
     function publish() {
 
-        if (firstName.value && lastName.value && age.value && storyTitle.value && story.value) {
+        if (firstName.value && lastName.value && age.value && storyTitle.value && story.value && genre.value) {
             const ul = document.getElementById('preview-list')
             let li = document.createElement('li');
             li.className = 'story-info';
@@ -43,6 +43,7 @@ function solve() {
             storyTitle.value = '';
             let thirdP = document.createElement('p');
             thirdP.textContent = `Genre: ${genre.value}`;
+            genre.value = '';
             let fourthP = document.createElement('p');
             fourthP.textContent = story.value;
             story.value = ''
@@ -60,8 +61,6 @@ function solve() {
             deleteButton.className = 'delete-btn';
             deleteButton.addEventListener('click', deleteStory);
 
-            // article.append(heading, firstP, secondP, thirdP, fourthP);
-            // li.append(article, saveButton, editButton, deleteButton);
             article.appendChild(heading);
             article.appendChild(firstP);
             article.appendChild(secondP);
@@ -76,12 +75,12 @@ function solve() {
         }
     }
 
-    function deleteStory() {
-        const target = document.querySelector('#preview-list li');
-        target.remove()
+    function deleteStory(e) {
+        e.currentTarget.parentNode.remove();
+        publishButton.disabled = false;
     }
 
-    function editStory() {
+    function editStory(e) {
         firstName.value = currentFirstName;
         lastName.value = currentLastName;
         age.value = currentAge;
@@ -89,7 +88,7 @@ function solve() {
         genre.value = currentGenre;
         story.value = currentStory;
         editInfo = document.querySelector('.story-info');
-        editInfo.remove();
+        e.currentTarget.parentNode.remove();
         publishButton.disabled = false;
     }
 
