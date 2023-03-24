@@ -50,6 +50,11 @@ function solve() {
         deleteButton.addEventListener('click', deleteSong);
         newDiv.appendChild(deleteButton);
         allHitsDiv.appendChild(newDiv);
+
+        genre.value = '';
+        name.value = '';
+        author.value = '';
+        date.value = '';
     }
 
     function saveSong() {
