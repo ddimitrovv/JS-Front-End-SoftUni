@@ -19,60 +19,61 @@ function solve() {
 
     function publish() {
 
-        if (firstName.value && lastName.value && age.value && storyTitle.value && story.value && genre.value) {
-            const ul = document.getElementById('preview-list')
-            let li = document.createElement('li');
-            li.className = 'story-info';
-            let article = document.createElement('article');
-            let heading = document.createElement('h4');
-            heading.textContent = `Name: ${firstName.value} ${lastName.value}`;
-            currentFirstName = firstName.value;
-            currentLastName = lastName.value;
-            currentAge = age.value;
-            currentStoryTitle = storyTitle.value;
-            currentGenre = genre.value;
-            currentStory = story.value;
-            
-            firstName.value = '';
-            lastName.value = '';
-            let firstP = document.createElement('p');
-            firstP.textContent = `Age: ${age.value}`;
-            age.value = '';
-            let secondP = document.createElement('p');
-            secondP.textContent = `Title: ${storyTitle.value}`;
-            storyTitle.value = '';
-            let thirdP = document.createElement('p');
-            thirdP.textContent = `Genre: ${genre.value}`;
-            genre.value = '';
-            let fourthP = document.createElement('p');
-            fourthP.textContent = story.value;
-            story.value = ''
-            let saveButton = document.createElement('button');
-            saveButton.textContent = 'Save Story';
-            saveButton.className = 'save-btn';
-            saveButton.addEventListener('click', saveStory);
-            let editButton = document.createElement('button');
-            editButton.textContent = 'Edit Story';
-            editButton.className = 'edit-btn';
-            editButton.addEventListener('click', editStory);
-
-            let deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete Story';
-            deleteButton.className = 'delete-btn';
-            deleteButton.addEventListener('click', deleteStory);
-
-            article.appendChild(heading);
-            article.appendChild(firstP);
-            article.appendChild(secondP);
-            article.appendChild(thirdP);
-            article.appendChild(fourthP);
-            li.appendChild(article);
-            li.appendChild(saveButton);
-            li.appendChild(editButton);
-            li.appendChild(deleteButton);
-            ul.appendChild(li);
-            publishButton.disabled = 'disabled';
+        if (!firstName.value || !lastName.value || !age.value || !storyTitle.value || !story.value || !genre.value) {
+            return;
         }
+        const ul = document.getElementById('preview-list')
+        let li = document.createElement('li');
+        li.className = 'story-info';
+        let article = document.createElement('article');
+        let heading = document.createElement('h4');
+        heading.textContent = `Name: ${firstName.value} ${lastName.value}`;
+        currentFirstName = firstName.value;
+        currentLastName = lastName.value;
+        currentAge = age.value;
+        currentStoryTitle = storyTitle.value;
+        currentGenre = genre.value;
+        currentStory = story.value;
+        
+        firstName.value = '';
+        lastName.value = '';
+        let firstP = document.createElement('p');
+        firstP.textContent = `Age: ${age.value}`;
+        age.value = '';
+        let secondP = document.createElement('p');
+        secondP.textContent = `Title: ${storyTitle.value}`;
+        storyTitle.value = '';
+        let thirdP = document.createElement('p');
+        thirdP.textContent = `Genre: ${genre.value}`;
+        genre.value = '';
+        let fourthP = document.createElement('p');
+        fourthP.textContent = story.value;
+        story.value = ''
+        let saveButton = document.createElement('button');
+        saveButton.textContent = 'Save Story';
+        saveButton.className = 'save-btn';
+        saveButton.addEventListener('click', saveStory);
+        let editButton = document.createElement('button');
+        editButton.textContent = 'Edit Story';
+        editButton.className = 'edit-btn';
+        editButton.addEventListener('click', editStory);
+
+        let deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete Story';
+        deleteButton.className = 'delete-btn';
+        deleteButton.addEventListener('click', deleteStory);
+
+        article.appendChild(heading);
+        article.appendChild(firstP);
+        article.appendChild(secondP);
+        article.appendChild(thirdP);
+        article.appendChild(fourthP);
+        li.appendChild(article);
+        li.appendChild(saveButton);
+        li.appendChild(editButton);
+        li.appendChild(deleteButton);
+        ul.appendChild(li);
+        publishButton.disabled = 'disabled';
     }
 
     function deleteStory(e) {
