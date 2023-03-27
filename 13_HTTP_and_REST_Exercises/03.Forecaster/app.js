@@ -57,6 +57,7 @@ function attachEvents() {
                     div.appendChild(iconSpan);
                     div.appendChild(spanMain);
                 })
+                .catch((error) => catchError())
 
             fetch(`${THREE_DAY_FORECAST_URL}${currentCode}`)
                 .then((response) => response.json())
@@ -83,11 +84,15 @@ function attachEvents() {
                         div.appendChild(spanMain);
                     })
                 })
+                .catch((error) => catchError())
         })
-        .catch((error) => {
-            const forecastDiv = document.getElementById('forecast');
-            forecastDiv.textContent = 'Error'
-        })
+        .catch((error) => catchError())
+    }
+
+    function catchError () {
+        const forecastDiv = document.getElementById('forecast');
+        forecastDiv.style.display = 'block';
+        forecastDiv.textContent = 'Error'
     }
 }
 
