@@ -209,3 +209,4 @@ FakesAssemblies/
 *.vsix
 
 *.zip
+*/tests/
