@@ -21,6 +21,7 @@ function attachEvents() {
 		fetch(BASE_URL, httpHeaders)
 		.then((response) => response.json())
 		.then(loadStudentsInfo())
+		.catch((error) => console.error(error.message))
 	}
 	
 	function loadStudentsInfo() {
