@@ -1,4 +1,3 @@
-// window.addEventListener("load", attachEvents());
 function attachEvents() {
 	const BASE_URL = 'http://localhost:3030/jsonstore/collections/students/'
 	const submitButton = document.getElementById('submit');
