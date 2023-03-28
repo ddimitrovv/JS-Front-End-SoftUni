@@ -34,6 +34,7 @@ function attachEvents() {
         for (const option of optionsButton) {
             if (option.value === optionId) {
                 optionText = option.textContent;
+                break;
             }
         }
 
