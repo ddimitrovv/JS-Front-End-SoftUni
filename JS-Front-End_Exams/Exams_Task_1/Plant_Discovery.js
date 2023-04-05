@@ -13,7 +13,7 @@ function plantDiscovery(inputArray) {
         if (currentCommand === 'Exhibition') {
             console.log('Plants for the exhibition:')
             for (plant in allPlants) {
-                let sum = (allPlants[plant].rating.length > 0)? (allPlants[plant].rating.reduce((a, b) => a + b)) : 0;
+                let sum = (allPlants[plant].rating.length > 0)? (allPlants[plant].rating.reduce((a, b) => a + b) / allPlants[plant].rating.length) : 0;
                 console.log(`- ${plant}; Rarity: ${allPlants[plant].rarity}; Rating: ${sum.toFixed(2)}`);
             }
             break
