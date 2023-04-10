@@ -55,7 +55,7 @@ function solve() {
         article.appendChild(p);
         const secondDiv = document.createElement('div');
         secondDiv.className = 'task-card-points';
-        secondDiv.textContent = `Estimated at ${points.value} points`;
+        secondDiv.textContent = `Estimated at ${points.value} pts`;
         article.appendChild(secondDiv);
         const thirdDiv = document.createElement('div');
         thirdDiv.className = 'task-card-assignee';
@@ -69,7 +69,6 @@ function solve() {
         buttonsDiv.appendChild(deleteButton);
         article.appendChild(buttonsDiv);
         tasksSection.appendChild(article);
-        hiddenInput.value = `task-${taskID}`
         articles[`task-${taskID}`] = {
             title: title.value,
             description: description.value,
