@@ -1,4 +1,4 @@
-function springReview(inputArray) {
+function sprintReview(inputArray) {
     let people = {}
     let tasksPoints = {
         'ToDo': 0,
