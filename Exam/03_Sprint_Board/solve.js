@@ -32,7 +32,6 @@ function attachEvents() {
 
     createTaskButton.addEventListener('click', addNewTask)
     function addNewTask() {
-        console.log(title.value, description.value)
         const httpHeaders = {
             method: 'POST',
             body: JSON.stringify({
