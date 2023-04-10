@@ -55,7 +55,7 @@ function solve() {
         const secondDiv = document.createElement('div');
         secondDiv.className = 'task-card-points';
         secondDiv.textContent = `Estimated at ${points.value} points`;
-        article.appendChild(firstDiv);
+        article.appendChild(secondDiv);
         const thirdDiv = document.createElement('div');
         thirdDiv.className = 'task-card-assignee';
         thirdDiv.textContent =`Assigned to: ${taskAssignee.value}`
