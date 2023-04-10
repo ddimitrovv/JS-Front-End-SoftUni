@@ -10,6 +10,7 @@ function solve() {
     const deleteTaskButton = document.getElementById('delete-task-btn');
     const tasksSection = document.getElementById('tasks-section');
     const totalPoints = document.getElementById('total-sprint-points');
+    const hiddenInput = document.getElementById('task-id')
     let totalSprintPoints = 0
     let taskID = 0
 
@@ -67,15 +68,15 @@ function solve() {
         deleteButton.addEventListener('click', confirmDelete);
         buttonsDiv.appendChild(deleteButton);
         article.appendChild(buttonsDiv);
-
         tasksSection.appendChild(article);
-        
+        hiddenInput.value = `task-${taskID}`
         articles[`task-${taskID}`] = {
             title: title.value,
             description: description.value,
             optionSelect: optionSelect.value,
             points: Number(points.value),
-            taskAssignee: taskAssignee.value
+            taskAssignee: taskAssignee.value,
+            hiddenInput: hiddenInput.value
         }
 
         title.value = '';
@@ -83,6 +84,7 @@ function solve() {
         optionSelect.value = '';
         points.value = '';
         taskAssignee.value = '';
+        hiddenInput.value = '';
     }
 
     function confirmDelete(event) {
@@ -94,6 +96,12 @@ function solve() {
         optionSelect.value = articles[id].optionSelect;
         points.value = articles[id].points;
         taskAssignee.value = articles[id].taskAssignee;
+        hiddenInput.value = articles[id].hiddenInput;
+        title.disabled = true;
+        description.disabled = true;
+        optionSelect.disabled = true;
+        points.disabled = true;
+        taskAssignee.disabled = true;
         createTaskButton.disabled = true;
         deleteTaskButton.disabled = false;
         deleteTaskButton.addEventListener('click', () => {
@@ -101,12 +109,18 @@ function solve() {
             article.remove()
             createTaskButton.disabled = false;
             deleteTaskButton.disabled = true;
+            title.disabled = false;
+            description.disabled = false;
+            optionSelect.disabled = false;
+            points.disabled = false;
+            taskAssignee.disabled = false;
             totalPoints.textContent = `Total Points ${totalSprintPoints}pts`
             title.value = '';
             description.value = '';
             optionSelect.value = '';
             points.value = '';
             taskAssignee.value = '';
+            hiddenInput.value = '';
         });
 
     }
