@@ -14,6 +14,7 @@ function attachEvents() {
         fetch(BASE_POSTS_URL)
         .then((response) => response.json())
         .then((data) => {
+            selectButton.textContent = '';
             for (const key in data) {
                 const newOption = document.createElement('option');
                 newOption.value = data[key].id;
