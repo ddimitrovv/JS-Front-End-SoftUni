@@ -64,12 +64,13 @@ function solve() {
         buttons.add.disabled = true;
         buttons.edit.addEventListener('click', () => {
             httpHeaders = {
-                method: 'PATCH',
+                method: 'PUT',
                 body: JSON.stringify({
                     title: inputs.name.value,
                     type: inputs.type.value,
                     description: inputs.description.value,
                     teacher: inputs.teacher.value,
+                    _id: id
                 })
             }
             fetch(BASE_URL+id, httpHeaders)
